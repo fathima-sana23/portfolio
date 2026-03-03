@@ -5,18 +5,56 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Navbar height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    if (isOpen) setIsOpen(false);
+    
+    // Clean URL without adding hash
+    window.history.pushState("", document.title, window.location.pathname + window.location.search);
+  };
+
+  const navItems = [
+    { name: 'About', id: 'about' },
+    { name: 'Skills', id: 'skills' },
+    { name: 'Experience', id: 'experience' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Contact', id: 'contact' }
+  ];
+
   return (
     <nav className="navbar">
       <div className="container">
-        <h1 style={{ fontSize: '1.8rem', color: 'var(--accent-gold)', fontWeight: '900' }}>FS.</h1>
+        <h1 
+          onClick={(e) => scrollToSection(e, 'hero')}
+          style={{ fontSize: '1.8rem', color: 'var(--accent-gold)', fontWeight: '900', cursor: 'pointer' }}
+        >
+          FS.
+        </h1>
         
         {/* Desktop Links */}
         <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          {navItems.map((item) => (
+            <a 
+              key={item.id} 
+              href={`#${item.id}`} 
+              onClick={(e) => scrollToSection(e, item.id)}
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
 
         {/* Mobile Toggle */}
@@ -54,11 +92,16 @@ const Navbar = () => {
           zIndex: 105,
           borderLeft: '1px solid var(--glass-border)'
         }}>
-          <a href="#about" onClick={toggleMenu} style={{ fontSize: '1.5rem', fontWeight: '700', textTransform: 'uppercase', color: 'white' }}>About</a>
-          <a href="#skills" onClick={toggleMenu} style={{ fontSize: '1.5rem', fontWeight: '700', textTransform: 'uppercase', color: 'white' }}>Skills</a>
-          <a href="#experience" onClick={toggleMenu} style={{ fontSize: '1.5rem', fontWeight: '700', textTransform: 'uppercase', color: 'white' }}>Experience</a>
-          <a href="#projects" onClick={toggleMenu} style={{ fontSize: '1.5rem', fontWeight: '700', textTransform: 'uppercase', color: 'white' }}>Projects</a>
-          <a href="#contact" onClick={toggleMenu} style={{ fontSize: '1.5rem', fontWeight: '700', textTransform: 'uppercase', color: 'white' }}>Contact</a>
+          {navItems.map((item) => (
+            <a 
+              key={`mob-${item.id}`}
+              href={`#${item.id}`} 
+              onClick={(e) => scrollToSection(e, item.id)}
+              style={{ fontSize: '1.5rem', fontWeight: '700', textTransform: 'uppercase', color: 'white' }}
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
       </div>
 

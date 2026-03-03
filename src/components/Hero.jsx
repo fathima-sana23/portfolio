@@ -71,7 +71,8 @@ const Hero = () => {
               View Projects <span>→</span>
             </a>
             <a 
-              href="#" 
+              href="/resume.pdf" 
+              download="Fathimath_Sana_Resume.pdf"
               className="btn-pill btn-secondary-glow"
             >
               <span style={{ margin: '0 8px 0 0', fontSize: '1.2rem' }}>📥</span> RESUME

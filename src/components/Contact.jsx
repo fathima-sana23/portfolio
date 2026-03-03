@@ -50,17 +50,7 @@ const Contact = () => {
     <section id="contact" style={{ padding: 'var(--section-padding)', position: 'relative' }}>
       <div className="container">
         {/* Opportunity Status Card */}
-        <div className="glass-card-premium" style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '2rem',
-          padding: '2rem 2.5rem',
-          marginBottom: '3rem',
-          textAlign: 'left',
-          borderLeft: '4px solid var(--primary)',
-          boxShadow: '0 0 40px rgba(145, 94, 255, 0.15)',
-          background: 'rgba(30, 41, 59, 0.4)'
-        }}>
+        <div className="glass-card-premium contact-opportunity-card">
           <div style={{ fontSize: '2.5rem', color: 'var(--primary)' }}>💼</div>
           <div>
             <h3 style={{ fontSize: '1.3rem', color: 'white', marginBottom: '0.5rem', fontWeight: '700' }}>Open for Opportunities</h3>
@@ -83,14 +73,7 @@ const Contact = () => {
           Let's <span className="vibrant-text">Work Together</span>
         </h2>
 
-        <div className="glass-card-premium" style={{
-            padding: '4rem',
-            background: 'rgba(17, 16, 29, 0.6)',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '5rem',
-            textAlign: 'left'
-        }}>
+        <div className="glass-card-premium contact-main-grid">
           {/* Left Column: Communication Hub */}
           <div>
             <h3 style={{ fontSize: '2rem', color: 'white', marginBottom: '1.5rem', fontWeight: '800' }}>

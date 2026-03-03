@@ -114,6 +114,59 @@ h1, h2, h3, h4 {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@media (max-width: 768px) {
+  .glass-card-premium {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+}
+
+/* Contact Specific Responsive Utilities */
+.contact-opportunity-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  margin-bottom: 3rem;
+  text-align: left;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 0 40px rgba(145, 94, 255, 0.15);
+  background: rgba(30, 41, 59, 0.4);
+}
+
+@media (max-width: 768px) {
+  .contact-opportunity-card {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 5rem;
+  padding: 4rem;
+  background: rgba(17, 16, 29, 0.6);
+  text-align: left;
+}
+
+@media (max-width: 1024px) {
+  .contact-main-grid {
+    padding: 3rem;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-main-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    gap: 3rem;
+  }
+}
+
 .glass-card-premium::before {
   content: '';
   position: absolute;
@@ -246,8 +299,15 @@ h1, h2, h3, h4 {
 /* Grid Layouts */
 .rich-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 3rem;
+}
+
+@media (max-width: 480px) {
+  .rich-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /* Responsive Media Queries */
